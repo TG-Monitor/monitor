@@ -1,9 +1,6 @@
 package ai.quantumsense.tgmonitor.monitor;
 
-import java.util.ArrayList;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import static ai.quantumsense.tgmonitor.monitor.MonitorState.*;
 
@@ -99,27 +96,27 @@ public class Monitor {
 //        this.interval = interval;
 //    }
 
-    public List<String> getPeers() {
-        return new ArrayList<>(peers);
+    public Set<String> getPeers() {
+        return new LinkedHashSet<>(peers);
     }
 
-    public void setPeers(List<String> peers) {
+    public void setPeers(Set<String> peers) {
         this.peers = new LinkedHashSet<>(peers);
     }
 
-    public List<String> getPatterns() {
-        return new ArrayList<>(patterns);
+    public Set<String> getPatterns() {
+        return new LinkedHashSet<>(patterns);
     }
 
-    public void setPatterns(List<String> patterns) {
+    public void setPatterns(Set<String> patterns) {
         this.patterns = new LinkedHashSet<>(patterns);
     }
 
-    public List<String> getEmails() {
-        return new ArrayList<>(emails);
+    public Set<String> getEmails() {
+        return new LinkedHashSet<>(emails);
     }
 
-    public void setEmails(List<String> emails) {
+    public void setEmails(Set<String> emails) {
         this.emails = new LinkedHashSet<>(emails);
     }
 
