@@ -63,7 +63,7 @@ public class Monitor {
                 illegalState("Attempting to start monitor, but is already running");
                 break;
             case LOGGED_IN_PAUSED:
-                executor.start();
+                executor.start(interval);
                 state = LOGGED_IN_RUNNING;
                 break;
             case LOGGED_OUT:

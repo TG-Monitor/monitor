@@ -1,7 +1,7 @@
 package ai.quantumsense.tgmonitor.monitor;
 
 public interface Executor {
-    void start();
+    void start(int interval);
     void pause();
     boolean isRunning();
 }
