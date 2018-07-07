@@ -1,7 +1,8 @@
 package ai.quantumsense.tgmonitor.monitor;
 
 public interface Executor {
-    void start(int interval);
-    void pause();
-    boolean isRunning();
+    void startAll();
+    void stopAll();
+    void startPeer(String peer);
+    void stopPeer(String peer);
 }
