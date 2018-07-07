@@ -64,7 +64,7 @@ fabric.properties
 gradle-app.setting
 
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
-!gradle-wrapper.jar
+#!gradle-wrapper.jar
 
 # Cache of project
 .gradletasknamecache
@@ -88,7 +88,7 @@ gradle-app.setting
 .mtj.tmp/
 
 # Package Files #
-*.jar
+#*.jar
 *.war
 *.nar
 *.ear
