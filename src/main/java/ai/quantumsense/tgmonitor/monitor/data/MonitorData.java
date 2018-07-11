@@ -1,14 +1,8 @@
-package ai.quantumsense.tgmonitor.monitor;
+package ai.quantumsense.tgmonitor.monitor.data;
 
 import java.util.Set;
 
-public interface Monitor {
-    MonitorState getState();
-    void login(String phoneNumber);
-    void logout();
-    void start();
-    void pause();
-    String getPhoneNumber();
+public interface MonitorData {
     Set<String> getPeers();
     void setPeers(Set<String> peers);
     Set<String> getPatterns();

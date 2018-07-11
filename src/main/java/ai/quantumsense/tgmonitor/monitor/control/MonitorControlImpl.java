@@ -1,24 +1,26 @@
-package ai.quantumsense.tgmonitor.monitor;
+package ai.quantumsense.tgmonitor.monitor.control;
 
-import java.util.LinkedHashSet;
-import java.util.Set;
+import static ai.quantumsense.tgmonitor.monitor.control.MonitorState.LOGGED_IN_PAUSED;
+import static ai.quantumsense.tgmonitor.monitor.control.MonitorState.LOGGED_IN_RUNNING;
+import static ai.quantumsense.tgmonitor.monitor.control.MonitorState.LOGGED_OUT;
 
-import static ai.quantumsense.tgmonitor.monitor.MonitorState.*;
-
-public class MonitorImpl implements Monitor {
+public class MonitorControlImpl implements MonitorControl {
 
     private String phoneNumber = null;
-    private Set<String> peers = new LinkedHashSet<>();
-    private Set<String> patterns = new LinkedHashSet<>();
-    private Set<String> emails = new LinkedHashSet<>();
     private MonitorState state = LOGGED_OUT;
-
     private Authenticator authenticator;
     private Executor executor;
 
-    public MonitorImpl(Authenticator authenticator, Executor executor) {
+    private static MonitorControl instance = null;
+
+    public MonitorControlImpl(Authenticator authenticator, Executor executor) {
         this.authenticator = authenticator;
         this.executor = executor;
+        instance = this;
+    }
+
+    static MonitorControl get() {
+        return instance;
     }
 
     @Override
@@ -92,36 +94,6 @@ public class MonitorImpl implements Monitor {
     @Override
     public String getPhoneNumber() {
         return phoneNumber;
-    }
-
-    @Override
-    public Set<String> getPeers() {
-        return new LinkedHashSet<>(peers);
-    }
-
-    @Override
-    public void setPeers(Set<String> peers) {
-        this.peers = new LinkedHashSet<>(peers);
-    }
-
-    @Override
-    public Set<String> getPatterns() {
-        return new LinkedHashSet<>(patterns);
-    }
-
-    @Override
-    public void setPatterns(Set<String> patterns) {
-        this.patterns = new LinkedHashSet<>(patterns);
-    }
-
-    @Override
-    public Set<String> getEmails() {
-        return new LinkedHashSet<>(emails);
-    }
-
-    @Override
-    public void setEmails(Set<String> emails) {
-        this.emails = new LinkedHashSet<>(emails);
     }
 
     private void illegalState(String msg) {

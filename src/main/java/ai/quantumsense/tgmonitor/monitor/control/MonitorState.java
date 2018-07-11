@@ -1,4 +1,4 @@
-package ai.quantumsense.tgmonitor.monitor;
+package ai.quantumsense.tgmonitor.monitor.control;
 
 public enum MonitorState {
     LOGGED_OUT,
