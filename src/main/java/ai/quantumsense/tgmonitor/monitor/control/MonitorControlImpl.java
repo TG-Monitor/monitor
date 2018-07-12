@@ -1,5 +1,7 @@
 package ai.quantumsense.tgmonitor.monitor.control;
 
+import ai.quantumsense.tgmonitor.monitor.logincode.LoginCodeReader;
+
 import static ai.quantumsense.tgmonitor.monitor.control.MonitorState.LOGGED_IN_PAUSED;
 import static ai.quantumsense.tgmonitor.monitor.control.MonitorState.LOGGED_IN_RUNNING;
 import static ai.quantumsense.tgmonitor.monitor.control.MonitorState.LOGGED_OUT;

@@ -1,4 +1,4 @@
-package ai.quantumsense.tgmonitor.monitor.control;
+package ai.quantumsense.tgmonitor.monitor.logincode;
 
 public interface LoginCodeReader {
     String getLoginCodeFromUser();
