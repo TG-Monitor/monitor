@@ -1,7 +1,5 @@
 package ai.quantumsense.tgmonitor.monitor.control;
 
-import ai.quantumsense.tgmonitor.monitor.logincode.LoginCodeReader;
-
 import static ai.quantumsense.tgmonitor.monitor.control.MonitorState.LOGGED_IN_PAUSED;
 import static ai.quantumsense.tgmonitor.monitor.control.MonitorState.LOGGED_IN_RUNNING;
 import static ai.quantumsense.tgmonitor.monitor.control.MonitorState.LOGGED_OUT;
@@ -12,14 +10,12 @@ public class MonitorControlImpl implements MonitorControl {
     private MonitorState state = LOGGED_OUT;
     private Authenticator authenticator;
     private Executor executor;
-    private LoginCodeReader loginCodeReader;
 
     private static MonitorControl instance = null;
 
-    public MonitorControlImpl(Authenticator authenticator, Executor executor, LoginCodeReader loginCodeReader) {
+    public MonitorControlImpl(Authenticator authenticator, Executor executor) {
         this.authenticator = authenticator;
         this.executor = executor;
-        this.loginCodeReader = loginCodeReader;
         instance = this;
     }
 
@@ -98,11 +94,6 @@ public class MonitorControlImpl implements MonitorControl {
     @Override
     public String getPhoneNumber() {
         return phoneNumber;
-    }
-
-    @Override
-    public LoginCodeReader getLoginCodeReader() {
-        return loginCodeReader;
     }
 
     private void illegalState(String msg) {
