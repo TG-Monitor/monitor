@@ -8,4 +8,9 @@ public class LoginCodeManagerImplFactory implements LoginCodeManagerFactory{
             throw new RuntimeException("Attempting to get instance of " + LoginCodeManager.class.getSimpleName() + ", but has not yet been initialized");
         return instance;
     }
+
+    @Override
+    public void registerLoginCodeReader(LoginCodeReader loginCodeReader) {
+        new LoginCodeManagerImpl(loginCodeReader);
+    }
 }
