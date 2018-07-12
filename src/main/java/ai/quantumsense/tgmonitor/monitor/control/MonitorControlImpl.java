@@ -10,12 +10,14 @@ public class MonitorControlImpl implements MonitorControl {
     private MonitorState state = LOGGED_OUT;
     private Authenticator authenticator;
     private Executor executor;
+    private LoginCodeReader loginCodeReader;
 
     private static MonitorControl instance = null;
 
-    public MonitorControlImpl(Authenticator authenticator, Executor executor) {
+    public MonitorControlImpl(Authenticator authenticator, Executor executor, LoginCodeReader loginCodeReader) {
         this.authenticator = authenticator;
         this.executor = executor;
+        this.loginCodeReader = loginCodeReader;
         instance = this;
     }
 
@@ -94,6 +96,11 @@ public class MonitorControlImpl implements MonitorControl {
     @Override
     public String getPhoneNumber() {
         return phoneNumber;
+    }
+
+    @Override
+    public LoginCodeReader getLoginCodeReader() {
+        return loginCodeReader;
     }
 
     private void illegalState(String msg) {

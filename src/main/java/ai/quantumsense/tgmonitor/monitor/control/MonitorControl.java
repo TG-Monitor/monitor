@@ -7,4 +7,5 @@ public interface MonitorControl {
     void start();
     void pause();
     String getPhoneNumber();
+    LoginCodeReader getLoginCodeReader();
 }
