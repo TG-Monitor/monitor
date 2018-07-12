@@ -16,7 +16,7 @@ public class LoginCodeManagerImpl implements LoginCodeManager {
     }
 
     @Override
-    public LoginCodeReader getLoginCode() {
+    public LoginCodeReader getLoginCodeReader() {
         return loginCodeReader;
     }
 }
