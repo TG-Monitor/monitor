@@ -1,11 +1,17 @@
 package ai.quantumsense.tgmonitor.monitor.entities;
 
+import ai.quantumsense.tgmonitor.servicelocator.ServiceLocator;
+
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class EmailsImpl implements Emails {
 
     private Set<String> emails = new LinkedHashSet<>();
+
+    public EmailsImpl(ServiceLocator serviceLocator) {
+        serviceLocator.registerEmailsRepo(this);
+    }
 
     @Override
     public Set<String> getEmails() {

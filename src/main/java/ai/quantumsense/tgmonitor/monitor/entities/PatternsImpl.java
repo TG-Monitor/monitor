@@ -1,11 +1,17 @@
 package ai.quantumsense.tgmonitor.monitor.entities;
 
+import ai.quantumsense.tgmonitor.servicelocator.ServiceLocator;
+
 import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class PatternsImpl implements Patterns {
 
     private Set<String> patterns = new LinkedHashSet<>();
+
+    public PatternsImpl(ServiceLocator serviceLocator) {
+        serviceLocator.registerPatternsRepo(this);
+    }
 
     @Override
     public Set<String> getPatterns() {
