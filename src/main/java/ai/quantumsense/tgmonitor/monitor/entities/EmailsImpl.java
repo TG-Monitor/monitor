@@ -9,9 +9,9 @@ public class EmailsImpl implements Emails {
 
     private Set<String> emails = new LinkedHashSet<>();
 
-    public EmailsImpl(ServiceLocator serviceLocator) {
-        serviceLocator.registerEmailsRepo(this);
-    }
+//    public EmailsImpl(ServiceLocator serviceLocator) {
+//        serviceLocator.registerEmailsRepo(this);
+//    }
 
     @Override
     public Set<String> getEmails() {

@@ -20,7 +20,9 @@ allprojects {
         maven { url "https://jitpack.io" }
     }
 }
-
+configurations.all {
+    resolutionStrategy.cacheChangingModulesFor 0, 'seconds'
+}
 dependencies {
     implementation 'com.github.tg-monitor:servicelocator:master-SNAPSHOT'
 }
