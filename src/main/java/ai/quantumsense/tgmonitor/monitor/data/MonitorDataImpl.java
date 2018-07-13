@@ -41,7 +41,7 @@ public class MonitorDataImpl implements MonitorData {
 
     @Override
     public void removePeer(String peer) {
-        this.peers.remove(peers);
+        this.peers.remove(peer);
     }
 
     @Override
