@@ -1,6 +1,6 @@
 package ai.quantumsense.tgmonitor.monitor;
 
-import ai.quantumsense.tgmonitor.monitor.entities.PeersUpdater;
+import ai.quantumsense.tgmonitor.entities.PeersUpdater;
 
 import java.util.HashSet;
 import java.util.Set;
