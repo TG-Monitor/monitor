@@ -10,7 +10,6 @@ public class MonitorImpl implements Monitor, PeersUpdater {
 
     private Telegram tg;
     private String phoneNumber = null;
-    private boolean loggedIn = false;
 
     public MonitorImpl(Telegram tg, ServiceLocator<Monitor> monitorLocator) {
         this.tg = tg;
@@ -19,20 +18,23 @@ public class MonitorImpl implements Monitor, PeersUpdater {
 
     @Override
     public void login(String phoneNumber) {
-        if (loggedIn)
+        if (isLoggedIn())
             throw new RuntimeException("Attempting to log in, but already logged in");
         tg.login(phoneNumber);
         this.phoneNumber = phoneNumber;
-        loggedIn = true;
     }
 
     @Override
     public void logout() {
-        if (!loggedIn)
+        if (!isLoggedIn())
             throw new RuntimeException("Attempting to log out, but already logged out");
         tg.logout();
         phoneNumber = null;
-        loggedIn = false;
+    }
+
+    @Override
+    public boolean isLoggedIn() {
+        return tg.isLoggedIn();
     }
 
     @Override
