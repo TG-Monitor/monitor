@@ -1,6 +1,7 @@
 package ai.quantumsense.tgmonitor.monitor;
 
 import ai.quantumsense.tgmonitor.entities.PeersUpdater;
+import ai.quantumsense.tgmonitor.servicelocator.ServiceLocator;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -11,15 +12,9 @@ public class MonitorImpl implements Monitor, PeersUpdater {
     private String phoneNumber = null;
     private boolean loggedIn = false;
 
-    private static Monitor instance = null;
-
-    public MonitorImpl(Telegram tg) {
+    public MonitorImpl(Telegram tg, ServiceLocator<Monitor> monitorLocator) {
         this.tg = tg;
-        instance = this;
-    }
-
-    static Monitor get() {
-        return instance;
+        monitorLocator.registerService(this);
     }
 
     @Override
