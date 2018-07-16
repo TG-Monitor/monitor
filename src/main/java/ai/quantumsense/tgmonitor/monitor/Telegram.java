@@ -37,7 +37,7 @@ public interface Telegram {
      * If the system is not logged in into Telegram, a RuntimeException is
      * thrown.
      */
-    void startReading();
+    void start();
 
     /**
      * Stop reading the incoming messages in the peers (groups and channels)
@@ -48,12 +48,12 @@ public interface Telegram {
      * If the system is not logged in into Telegram, a RuntimeException is
      * thrown.
      */
-    void stopReading();
+    void stop();
 
     /**
      * Test if the system is currently reading messages.
      *
      * @return "true" if currently reading, and "false" otherwise.
      */
-    boolean isReading();
+    boolean isRunning();
 }

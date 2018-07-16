@@ -35,17 +35,17 @@ public class MonitorImpl implements Monitor {
 
     @Override
     public void start() {
-        if (tg.isReading())
+        if (tg.isRunning())
             throw new RuntimeException("Attempting to start monitor, but is already running");
-        tg.startReading();
+        tg.start();
 
     }
 
     @Override
     public void stop() {
-        if (!tg.isReading())
+        if (!tg.isRunning())
             throw new RuntimeException("Attempting to stop monitor, but is currently not running");
-        tg.stopReading();
+        tg.stop();
     }
 
     @Override
