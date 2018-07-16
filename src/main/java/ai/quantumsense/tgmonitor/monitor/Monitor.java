@@ -4,5 +4,7 @@ public interface Monitor {
     void login(String phoneNumber);
     void logout();
     boolean isLoggedIn();
+    void start();
+    void stop();
     String getPhoneNumber();
 }

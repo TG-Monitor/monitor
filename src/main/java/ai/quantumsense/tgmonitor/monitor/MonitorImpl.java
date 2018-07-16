@@ -1,12 +1,8 @@
 package ai.quantumsense.tgmonitor.monitor;
 
-import ai.quantumsense.tgmonitor.entities.PeersUpdater;
 import ai.quantumsense.tgmonitor.servicelocator.ServiceLocator;
 
-import java.util.HashSet;
-import java.util.Set;
-
-public class MonitorImpl implements Monitor, PeersUpdater {
+public class MonitorImpl implements Monitor {
 
     private Telegram tg;
     private String phoneNumber = null;
@@ -38,28 +34,22 @@ public class MonitorImpl implements Monitor, PeersUpdater {
     }
 
     @Override
-    public String getPhoneNumber() {
-        return phoneNumber;
+    public void start() {
+        if (tg.isReading())
+            throw new RuntimeException("Attempting to start monitor, but is already running");
+        tg.startReading();
+
     }
 
     @Override
-    public void peersChanged(Set<String> newSet) {
-        Set<String> currentSet = tg.getMonitors();
-        for (String p : getPeersToStop(currentSet, newSet))
-            tg.stop(p);
-        for (String p : getPeersToStart(currentSet, newSet))
-            tg.start(p);
+    public void stop() {
+        if (!tg.isReading())
+            throw new RuntimeException("Attempting to stop monitor, but is currently not running");
+        tg.stopReading();
     }
 
-    Set<String> getPeersToStop(Set<String> oldSet, Set<String> newSet) {
-        Set<String> s = new HashSet<>(oldSet);
-        s.removeAll(newSet);
-        return s;
-    }
-
-    Set<String> getPeersToStart(Set<String> oldSet, Set<String> newSet) {
-        Set<String> s = new HashSet<>(newSet);
-        s.removeAll(oldSet);
-        return s;
+    @Override
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 }
