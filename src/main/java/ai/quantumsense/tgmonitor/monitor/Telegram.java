@@ -29,6 +29,16 @@ public interface Telegram {
     boolean isLoggedIn();
 
     /**
+     * Get the phone number of the user associated with the current logged-in
+     * session.
+     *
+     * If the system is currently not logged-in, a RuntimeException is thrown.
+     *
+     * @return Phone number (e.g. "+41791231212")
+     */
+    String getPhoneNumber();
+
+    /**
      * Start reading the incoming messages in the peers (groups and channels)
      * that are currently set in the Peers entities.
      *
