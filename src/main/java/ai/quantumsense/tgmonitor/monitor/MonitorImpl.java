@@ -59,6 +59,10 @@ public class MonitorImpl implements Monitor {
 
     @Override
     public String getPhoneNumber() {
+        if (!isLoggedIn())
+            throw new RuntimeException("Attempting to get phone number, but not logged in");
+        if (phoneNumber == null)
+            phoneNumber = tg.getPhoneNumber();
         return phoneNumber;
     }
 }
