@@ -6,5 +6,6 @@ public interface Monitor {
     boolean isLoggedIn();
     void start();
     void stop();
+    boolean isRunning();
     String getPhoneNumber();
 }

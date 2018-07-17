@@ -35,7 +35,9 @@ public class MonitorImpl implements Monitor {
 
     @Override
     public void start() {
-        if (tg.isRunning())
+        if (!isLoggedIn())
+            throw new RuntimeException("Attempting to start monitor, but not logged in");
+        if (isRunning())
             throw new RuntimeException("Attempting to start monitor, but is already running");
         tg.start();
 
@@ -43,9 +45,16 @@ public class MonitorImpl implements Monitor {
 
     @Override
     public void stop() {
-        if (!tg.isRunning())
+        if (!isLoggedIn())
+            throw new RuntimeException("Attempting to stop monitor, but not logged in");
+        if (!isRunning())
             throw new RuntimeException("Attempting to stop monitor, but is currently not running");
         tg.stop();
+    }
+
+    @Override
+    public boolean isRunning() {
+        return tg.isRunning();
     }
 
     @Override
