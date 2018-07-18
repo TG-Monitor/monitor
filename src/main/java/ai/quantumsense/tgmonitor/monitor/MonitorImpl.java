@@ -6,6 +6,7 @@ public class MonitorImpl implements Monitor {
 
     private Telegram tg;
     private String phoneNumber = null;
+    private Boolean isLoggedIn = null;
 
     public MonitorImpl(Telegram tg, ServiceLocator<Monitor> monitorLocator) {
         this.tg = tg;
@@ -18,6 +19,7 @@ public class MonitorImpl implements Monitor {
             throw new RuntimeException("Attempting to log in, but already logged in");
         tg.login(phoneNumber);
         this.phoneNumber = phoneNumber;
+        isLoggedIn = true;
     }
 
     @Override
@@ -26,11 +28,14 @@ public class MonitorImpl implements Monitor {
             throw new RuntimeException("Attempting to log out, but already logged out");
         tg.logout();
         phoneNumber = null;
+        isLoggedIn = false;
     }
 
     @Override
     public boolean isLoggedIn() {
-        return tg.isLoggedIn();
+        if (isLoggedIn == null)
+            isLoggedIn = tg.isLoggedIn();
+        return isLoggedIn;
     }
 
     @Override
