@@ -3,7 +3,7 @@ plugins {
 }
 
 group 'ai.quantumsense.tgmonitor'
-version '0.0.1'
+version '0.0.3'
 
 sourceCompatibility = 1.8
 
@@ -27,4 +27,6 @@ configurations.all {
 
 dependencies {
     implementation 'com.github.tg-monitor:entities:0.0.1'
+    implementation 'com.github.tg-monitor:servicelocator:0.0.1'
+
 }
