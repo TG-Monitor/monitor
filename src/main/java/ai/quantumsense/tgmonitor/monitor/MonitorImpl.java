@@ -1,5 +1,6 @@
 package ai.quantumsense.tgmonitor.monitor;
 
+import ai.quantumsense.tgmonitor.logincodeprompt.LoginCodePrompt;
 import ai.quantumsense.tgmonitor.servicelocator.ServiceLocator;
 
 public class MonitorImpl implements Monitor {

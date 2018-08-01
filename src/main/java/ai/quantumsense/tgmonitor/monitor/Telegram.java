@@ -1,5 +1,7 @@
 package ai.quantumsense.tgmonitor.monitor;
 
+import ai.quantumsense.tgmonitor.logincodeprompt.LoginCodePrompt;
+
 public interface Telegram {
 
     /**
