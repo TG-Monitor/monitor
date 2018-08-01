@@ -14,10 +14,10 @@ public class MonitorImpl implements Monitor {
     }
 
     @Override
-    public void login(String phoneNumber) {
+    public void login(String phoneNumber, LoginCodePrompt loginCodePrompt) {
         if (isLoggedIn())
             throw new RuntimeException("Attempting to log in, but already logged in");
-        tg.login(phoneNumber);
+        tg.login(phoneNumber, loginCodePrompt);
         this.phoneNumber = phoneNumber;
         isLoggedIn = true;
     }

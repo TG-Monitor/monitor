@@ -1,7 +1,7 @@
 package ai.quantumsense.tgmonitor.monitor;
 
 public interface Monitor {
-    void login(String phoneNumber);
+    void login(String phoneNumber, LoginCodePrompt loginCodePrompt);
     void logout();
     boolean isLoggedIn();
     void start();
