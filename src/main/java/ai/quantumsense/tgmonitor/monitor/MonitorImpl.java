@@ -21,6 +21,7 @@ public class MonitorImpl implements Monitor {
         tg.login(phoneNumber, loginCodePrompt);
         this.phoneNumber = phoneNumber;
         isLoggedIn = true;
+        if (!isRunning()) start();
     }
 
     @Override
@@ -30,6 +31,7 @@ public class MonitorImpl implements Monitor {
         tg.logout();
         phoneNumber = null;
         isLoggedIn = false;
+        if (isRunning()) stop();
     }
 
     @Override
